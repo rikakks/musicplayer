@@ -22,6 +22,7 @@ music_library = {
     'Up': 'up.mp3',
     'Wall Rat': 'wallrat.mp3',
     'When she loved me': 'whenshelovedme.mp3',
+    'HEYEYEYEYEA': 'hey.mp3',
 }
 
 music_list = list(music_library)

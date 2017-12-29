@@ -61,16 +61,8 @@ Please select an option or type a title:
 """)
 menu_options = ['0. Play All', '1. Shuffle', '2. Choose music from Library']
 
-
-def readme():
-    """This music player was made so that I can enjoy my personal time listening
-    to my favorite Disney songs!
-    """
-
-
 while True:
     print(menu_options)
-    print("For a hidden message, type help(readme)")
     menu_selection = raw_input(": ")
     while menu_selection not in music_list:
         menu_selection = int(menu_selection)

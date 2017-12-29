@@ -27,6 +27,7 @@ music_library = {
 
 music_list = list(music_library)
 
+
 def handle_selection(selection):
     if selection == 0:
         for music in music_list:
@@ -47,19 +48,29 @@ def handle_selection(selection):
         print("Now playing: " + selection)
         playsound("music/" + music_library[selection])
 
+
 def wait_for_input():
     back_to_menu = raw_input(": ")
     while back_to_menu != 'p':
         back_to_menu = raw_input(": ")
     thread.interrupt_main()
 
+
 print("""Hello and welcome to my music player.
 Please select an option or type a title:
 """)
 menu_options = ['0. Play All', '1. Shuffle', '2. Choose music from Library']
 
+
+def readme():
+    """This music player was made so that I can enjoy my personal time listening
+    to my favorite Disney songs!
+    """
+
+
 while True:
     print(menu_options)
+    print("For a hidden message, type help(readme)")
     menu_selection = raw_input(": ")
     while menu_selection not in music_list:
         menu_selection = int(menu_selection)
@@ -68,10 +79,11 @@ while True:
             menu_selection = raw_input(": ")
         else:
             break
-    print("""To go back to main menu, hit 'return' and enter 'p' and hit 'return' again.
+    print(
+        """To go back to main menu, hit 'return' and enter 'p' and hit 'return' again.
 """)
 
-    music_process = Process(target=handle_selection, args=(menu_selection,))
+    music_process = Process(target=handle_selection, args=(menu_selection, ))
     music_process.start()
 
     thread.start_new_thread(wait_for_input, ())
